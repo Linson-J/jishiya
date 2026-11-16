@@ -1,0 +1,5 @@
+{
+  "name": "jishya",
+  "private": true,
+  "scripts": { "dev": "node start-all.js" }
+}

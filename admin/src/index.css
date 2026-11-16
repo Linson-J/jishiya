@@ -1,0 +1,55 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply bg-ink text-white hover:bg-ink-mid;
+  }
+  .btn-danger {
+    @apply bg-accent text-white hover:bg-accent-dark;
+  }
+  .btn-ghost {
+    @apply border border-ink/30 bg-transparent text-ink hover:bg-ink/5;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  /* Forms */
+  .label {
+    @apply mb-1 block text-sm font-medium text-ink;
+  }
+  .input {
+    @apply block w-full rounded-md border-gray-300 text-sm shadow-sm focus:border-ink focus:ring-ink;
+  }
+  .input-error {
+    @apply border-accent focus:border-accent focus:ring-accent;
+  }
+
+  /* Surfaces */
+  .card {
+    @apply rounded-lg border border-gray-200 bg-white;
+  }
+  .th {
+    @apply whitespace-nowrap border-b border-gray-200 bg-gray-50 px-4 py-3 text-left text-xs font-semibold uppercase tracking-wider text-ink-soft;
+  }
+  .td {
+    @apply border-b border-gray-100 px-4 py-3 align-middle text-sm;
+  }
+}

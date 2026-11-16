@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Jishya — AI + Digital Marketing Workshop</title>
+<meta name="description" content="PhD-led live workshop in Tamil on AI + Digital Marketing. October 22–23, Zoom. ₹999.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f8f6f1; --ink:#0e0e0e; --ink-mid:#3a3a3a; --ink-soft:#767676;
+  --rule:#d0cbc1; --accent:#c0392b; --paper-dark:#ede9e1; --gold:#d4a84b;
+  --serif:'Libre Baskerville',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --pad:clamp(16px,4vw,48px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:56px}
+body{overflow-x:clip;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
+.serif{font-family:var(--serif)}
+
+/* Buttons */
+.btn{display:inline-block;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:14px 26px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn-red{background:var(--accent);border-color:var(--accent);color:#fff;padding:11px 22px}
+.btn-red:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-white{border-color:#fff;color:#fff}
+.btn-white:hover{background:#fff;color:var(--accent)}
+.btn:focus-visible,a:focus-visible,summary:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* Masthead */
+.mast-top{border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink-mid)}
+.mast-top .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:8px;padding-bottom:8px;gap:16px}
+.mast-top .links{display:flex;gap:20px}
+.mast-top a:hover{color:var(--accent)}
+.mast-main{border-bottom:3px double var(--ink)}
+.mast-main .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:22px;padding-bottom:22px;gap:16px}
+.logo{font-family:var(--serif);font-weight:700;font-size:clamp(34px,6vw,60px);line-height:1;letter-spacing:-.02em}
+.logo-sub{display:block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+.nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--ink)}
+.nav .wrap{display:flex;gap:0;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{flex:none;padding:14px 22px;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mid);border-right:1px solid var(--rule);border-bottom:3px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s,background .2s}
+.nav a:first-child{border-left:1px solid var(--rule)}
+.nav a:hover,.nav a.active{color:var(--accent);border-bottom-color:var(--accent);background:var(--paper-dark)}
+
+/* Ticker */
+.ticker{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap;padding:11px 0}
+.ticker-track{display:inline-flex;animation:tick 40s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:0 22px}
+.ticker span::after{content:"·";margin-left:44px;color:var(--accent)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:3fr 1fr;border-bottom:1px solid var(--ink)}
+.hero-main{padding:64px 48px 64px 0;border-right:1px solid var(--rule)}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--accent);font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:24px}
+.kicker::before{content:"";width:32px;height:2px;background:var(--accent)}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(34px,5.2vw,68px);line-height:1.08;letter-spacing:-.02em;margin-bottom:28px}
+.deck{font-size:clamp(17px,1.7vw,21px);color:var(--ink-mid);max-width:620px;line-height:1.55;margin-bottom:32px}
+.byline{display:flex;align-items:center;gap:14px;padding:16px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:32px;max-width:620px}
+.avatar{width:48px;height:48px;border-radius:50%;background:var(--paper-dark);border:1px solid var(--rule);display:grid;place-items:center;font-family:var(--serif);font-weight:700;font-size:20px;flex:none}
+.byline b{display:block;font-size:14px}
+.byline small{font-size:12px;color:var(--ink-soft)}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.price{display:flex;align-items:baseline;gap:10px}
+.price strong{font-family:var(--serif);font-size:40px;line-height:1}
+.price small{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.hero-side{padding:64px 0 64px 32px;display:flex;flex-direction:column}
+.info{padding:14px 0;border-bottom:1px solid var(--rule)}
+.info:first-child{padding-top:0}
+.info:last-child{border-bottom:0}
+.info small{display:block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.info b{font-size:16px;font-weight:600}
+.info .few{font-family:var(--serif);color:var(--accent);font-size:20px}
+.live{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:5px 12px}
+.live i{width:7px;height:7px;border-radius:50%;background:#fff;animation:blink 1.4s infinite}
+@keyframes blink{50%{opacity:.25}}
+
+/* Photos */
+.photos{padding:48px 0 0}
+.photo-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:24px}
+.ph{background:var(--paper-dark);border:1px solid var(--rule);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover}
+.portrait{aspect-ratio:3/4;padding:24px}
+.portrait .big{font-family:var(--serif);font-weight:700;font-size:clamp(110px,16vw,200px);line-height:1;color:var(--ink)}
+.portrait b{font-family:var(--serif);font-size:18px;margin-top:8px}
+.portrait small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.shot{aspect-ratio:4/3;padding:16px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.logos{margin-top:32px;border-top:1px solid var(--ink);border-bottom:1px solid var(--rule);overflow-x:auto;padding:20px 0;scrollbar-width:thin}
+.logo-row{display:flex;gap:16px;width:max-content}
+.logo-box{width:160px;height:64px;background:var(--paper-dark);border:1px solid var(--rule);display:grid;place-items:center;text-align:center;padding:8px;font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);filter:grayscale(1);transition:filter .3s}
+.logo-box:hover{filter:none}
+.logo-box img{filter:grayscale(1);transition:filter .3s;max-height:100%;object-fit:contain}
+.logo-box:hover img{filter:none}
+
+/* Stats */
+.stats{background:var(--ink);color:#fff;margin-top:48px}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:48px 24px;text-align:center;border-right:1px solid #333}
+.stat:last-child{border-right:0}
+.stat .n{font-family:var(--serif);font-weight:700;font-size:clamp(36px,5vw,60px);line-height:1}
+.stat small{display:block;margin-top:12px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:#aaa}
+
+/* Before/After */
+.ba{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--ink)}
+.ba>div{padding:56px var(--pad)}
+.ba-l{background:#fff;border-right:1px solid var(--ink)}
+.ba-r{background:var(--ink);color:#fff}
+.ba h2{font-family:var(--serif);font-size:clamp(22px,2.6vw,30px);margin-bottom:28px}
+.ba-l h2{color:#a85548}
+.ba-r h2{color:var(--gold)}
+.ba ul{list-style:none}
+.ba li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--rule);font-size:15px}
+.ba-r li{border-color:#333}
+.ba li:last-child{border-bottom:0}
+.ba li::before{font-weight:700;flex:none}
+.ba-l li::before{content:"✗";color:#a85548}
+.ba-r li::before{content:"✓";color:var(--gold)}
+.ba-l li{color:var(--ink-mid)}
+
+/* Section head */
+.sec{padding:72px 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:3px double var(--ink);padding-bottom:16px;margin-bottom:0;gap:16px;flex-wrap:wrap}
+.sec-head h2{font-family:var(--serif);font-size:clamp(28px,4vw,44px);line-height:1.1;letter-spacing:-.01em}
+
+/* Curriculum */
+.row{display:grid;grid-template-columns:90px 1fr 1.6fr;gap:24px;padding:28px 12px;border-bottom:1px solid var(--rule);align-items:baseline;transition:background .25s}
+.row:hover{background:var(--paper-dark)}
+.row .num{font-family:var(--serif);font-size:32px;color:var(--accent)}
+.row h3{font-family:var(--serif);font-size:20px;line-height:1.3}
+.row p{color:var(--ink-mid);font-size:15px}
+
+/* Who */
+.who{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--rule);border-top:1px solid var(--rule);margin-top:32px}
+.who div{padding:32px 28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);transition:background .25s}
+.who div:hover{background:var(--paper-dark)}
+.who span{display:block;font-size:32px;margin-bottom:12px}
+.who p{font-size:15px;color:var(--ink-mid)}
+
+/* About */
+.about{display:grid;grid-template-columns:1fr 1.4fr;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.about-l{padding:48px var(--pad);border-right:1px solid var(--ink);background:var(--paper)}
+.about-l .portrait{max-width:420px;margin:0 auto}
+.about-r{padding:56px var(--pad)}
+.about-r h2{font-family:var(--serif);font-size:clamp(30px,4vw,48px);line-height:1.1;margin:10px 0 24px}
+.about-r p{color:var(--ink-mid);margin-bottom:18px;max-width:620px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+.tags span{border:1px solid var(--ink);border-radius:999px;padding:5px 14px;font-size:12px;font-weight:500}
+
+/* Testimonials */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);border-left:1px solid var(--rule);margin-top:0}
+.tcard{padding:32px 28px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:16px}
+.stars{color:var(--accent);letter-spacing:3px;font-size:14px}
+.tcard blockquote{font-family:var(--serif);font-style:italic;font-size:16px;line-height:1.65;flex:1}
+.who-by{display:flex;align-items:center;gap:12px;font-size:13px;color:var(--ink-soft)}
+.who-by .avatar{width:36px;height:36px;font-size:15px}
+.who-by b{color:var(--ink);font-weight:600}
+
+/* FAQ */
+.faq{display:grid;grid-template-columns:1fr 1.8fr;gap:64px;align-items:start}
+.faq-l{position:sticky;top:80px}
+.faq-l h2{font-family:var(--serif);font-size:clamp(30px,4vw,46px);line-height:1.1;margin:10px 0 18px}
+.faq-l p{color:var(--ink-mid);font-size:15px}
+.faq-l a{color:var(--accent);border-bottom:1px solid var(--accent)}
+.faq-r{border-top:1px solid var(--ink)}
+.q{border-bottom:1px solid var(--rule)}
+.q button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:0;text-align:left;font-family:var(--serif);font-size:18px;font-weight:700;color:var(--ink);padding:22px 0;cursor:pointer}
+.q button::after{content:"+";font-family:var(--sans);font-weight:400;font-size:24px;color:var(--accent);transition:transform .3s;flex:none}
+.q.open button::after{transform:rotate(45deg)}
+.q .a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.q .a p{padding:0 0 22px;color:var(--ink-mid);font-size:15px;max-width:560px}
+
+/* CTA */
+.cta{background:var(--accent);color:#fff;text-align:center;padding:88px var(--pad)}
+.cta h2{font-family:var(--serif);font-size:clamp(32px,5.5vw,64px);line-height:1.1;margin-bottom:16px}
+.cta p{font-size:18px;opacity:.92;margin-bottom:32px}
+.cta small{display:block;margin-top:28px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+
+/* Footer */
+footer{background:var(--ink);color:#bbb}
+footer .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;padding-top:36px;padding-bottom:36px;font-size:13px}
+footer .flogo{font-family:var(--serif);font-weight:700;font-size:24px;color:#fff}
+footer nav{display:flex;gap:24px}
+footer nav a:hover{color:#fff}
+footer .copy{text-align:right}
+
+/* Images */
+figure.ph{position:relative;margin:0;padding:0}
+figure.ph img{position:absolute;inset:-8% 0;width:100%;height:116%;object-fit:cover;will-change:transform;transition:filter .5s}
+figure.ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;text-align:left;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.72));font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;z-index:1}
+figure.portrait figcaption{display:flex;flex-direction:column;gap:2px}
+figure.portrait figcaption b{font-family:var(--serif);font-size:18px;letter-spacing:0;text-transform:none;margin:0}
+figure.portrait figcaption small{color:#ddd;margin:0}
+figure.ph:hover img{filter:saturate(1.15) brightness(1.05)}
+/* Image reveal: curtain wipe + zoom settle */
+.img-reveal{clip-path:inset(0 0 100% 0);transition:clip-path 1s cubic-bezier(.77,0,.18,1) var(--d,0s)}
+.img-reveal.on{clip-path:inset(0)}
+/* Scroll progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:100}
+/* Staggered children */
+.stagger.stagger>*{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease,background .25s;transition-delay:calc(var(--i,0)*90ms)}
+.stagger.on>*{opacity:1;transform:none}
+.stagger.on>*:hover{transition-delay:0s}
+/* Hero load-in */
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero h1,.hero .deck,.hero .byline,.hero .hero-cta{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hero h1{animation-delay:.15s}.hero .deck{animation-delay:.3s}.hero .byline{animation-delay:.45s}.hero .hero-cta{animation-delay:.6s}
+/* Gentle pulse on CTA */
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(192,57,43,.45)}70%,100%{box-shadow:0 0 0 14px rgba(192,57,43,0)}}
+.hero-cta .btn{animation:pulse 2.4s infinite}
+.stagger.on>.tcard:hover,.stagger.on>.who div:hover,.who.stagger.on>div:hover{transform:translateY(-4px)}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+.rv.in-left{transform:translateX(-40px)}
+.rv.in-right{transform:translateX(40px)}
+.rv.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .rv,.stagger.stagger>*{opacity:1;transform:none;transition:none}
+  .img-reveal{clip-path:none;transition:none}
+  .hero h1,.hero .deck,.hero .byline,.hero .hero-cta,.hero-cta .btn{animation:none}
+  figure.ph img{transform:none!important}
+  .ticker-track{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* Responsive */
+@media (max-width:1000px){
+  .who{grid-template-columns:repeat(2,1fr)}
+  .tgrid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:767px){
+  .mast-top{display:none}
+  .mast-main .btn-red{padding:10px 14px;font-size:11px}
+  .hero,.photo-grid,.ba,.about,.faq{grid-template-columns:1fr}
+  .hero-main{padding:40px 0;border-right:0;border-bottom:1px solid var(--rule)}
+  .hero-side{padding:32px 0}
+  .ba-l{border-right:0;border-bottom:1px solid var(--ink)}
+  .ba>div{padding:40px var(--pad)}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat{padding:32px 12px}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid #333}
+  .row{grid-template-columns:56px 1fr;gap:12px}
+  .row p{display:none}
+  .who,.tgrid{grid-template-columns:1fr}
+  .about-l{border-right:0;border-bottom:1px solid var(--ink)}
+  .faq{gap:32px}
+  .faq-l{position:static}
+  footer .wrap{grid-template-columns:1fr;text-align:center}
+  footer nav{justify-content:center}
+  footer .copy{text-align:center}
+  .sec{padding:48px 0}
+  .rv.in-left,.rv.in-right{transform:translateY(28px)}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<!-- MASTHEAD -->
+<header>
+  <div class="mast-top">
+    <div class="wrap">
+      <span>Live Workshop · October 22–23 · 6:30 PM IST · Zoom</span>
+      <span class="links">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:info@jishya.com">info@jishya.com</a>
+      </span>
+    </div>
+  </div>
+  <div class="mast-main">
+    <div class="wrap">
+      <a href="#top" class="logo" id="top">Dr. Jishya<span class="logo-sub">AI + Digital Marketing Specialist</span></a>
+      <a href="#enroll" class="btn btn-red">Enroll — ₹999</a>
+    </div>
+  </div>
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap">
+      <a href="#why">Why This?</a>
+      <a href="#curriculum">Curriculum</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </div>
+  </nav>
+</header>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<main>
+<!-- HERO -->
+<div class="wrap">
+  <section class="hero" id="why">
+    <div class="hero-main rv in-left">
+      <div class="kicker">Certified Live Workshop · Tamil · Limited Seats</div>
+      <h1>Grow Your Business &amp; Personal Brand with AI + Digital Marketing</h1>
+      <p class="deck">PhD-led, step-by-step live training to get leads, build income, and grow your brand online — even starting from zero.</p>
+      <div class="byline">
+        <div class="avatar">J</div>
+        <div><b>Dr. G.B. Jishya</b><small>Ph.D in Digital Marketing · Consumer Psychology</small></div>
+      </div>
+      <div class="hero-cta">
+        <a href="#enroll" class="btn">Reserve My Seat — ₹999</a>
+        <div class="price"><strong>₹999</strong><small>One-time · No recordings</small></div>
+      </div>
+    </div>
+    <aside class="hero-side rv in-right" aria-label="Workshop details">
+      <div class="info"><span class="live"><i></i>Live</span></div>
+      <div class="info"><small>Platform</small><b>Zoom</b></div>
+      <div class="info"><small>Dates</small><b>Oct 22–23</b></div>
+      <div class="info"><small>Time</small><b>6:30–9:00 PM IST</b></div>
+      <div class="info"><small>Duration</small><b>5 Hours</b></div>
+      <div class="info"><small>Language</small><b>Tamil</b></div>
+      <div class="info"><small>Seats</small><b class="few">Few left</b></div>
+    </aside>
+  </section>
+</div>
+
+<!-- PHOTOS -->
+<section class="photos rv">
+  <div class="wrap">
+    <div class="photo-grid">
+      <!-- Sample images (placeholders). Replace the src values with real photos. -->
+      <figure class="ph portrait img-reveal">
+        <img src="https://picsum.photos/seed/jishya-portrait/800/1067" alt="Dr. G.B. Jishya" loading="lazy" data-parallax="0.06">
+        <figcaption><b>Dr. G.B. Jishya</b><small>Ph.D · Digital Marketing</small></figcaption>
+      </figure>
+      <div class="grid2">
+        <figure class="ph shot img-reveal" style="--d:.1s"><img src="https://picsum.photos/seed/jishya-workshop/800/600" alt="Digital Marketing Workshop" loading="lazy" data-parallax="0.05"><figcaption>Digital Marketing Workshop</figcaption></figure>
+        <figure class="ph shot img-reveal" style="--d:.2s"><img src="https://picsum.photos/seed/jishya-award/800/600" alt="Award Ceremony — Jeppiaar" loading="lazy" data-parallax="0.08"><figcaption>Award Ceremony — Jeppiaar</figcaption></figure>
+        <figure class="ph shot img-reveal" style="--d:.3s"><img src="https://picsum.photos/seed/jishya-conclave/800/600" alt="Industry Academia Conclave" loading="lazy" data-parallax="0.05"><figcaption>Industry Academia Conclave</figcaption></figure>
+        <figure class="ph shot img-reveal" style="--d:.4s"><img src="https://picsum.photos/seed/jishya-stage/800/600" alt="Stage Talk" loading="lazy" data-parallax="0.08"><figcaption>Stage Talk</figcaption></figure>
+      </div>
+    </div>
+    <div class="logos" aria-label="Organisations">
+      <div class="logo-row">
+        <div class="logo-box">GOD TV Asia</div>
+        <div class="logo-box">ODB</div>
+        <div class="logo-box">Toastmasters Intl</div>
+        <div class="logo-box">GO Movement</div>
+        <div class="logo-box">Campus Crusade</div>
+        <div class="logo-box">Essar Logistics</div>
+        <div class="logo-box">Madras Christian College</div>
+        <div class="logo-box">Soka Ikeda College</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats" aria-label="Impact">
+  <div class="wrap">
+    <div class="stat"><div class="n"><span data-count="1500">0</span>+</div><small>Students Trained</small></div>
+    <div class="stat"><div class="n"><span data-count="70">0</span>K+</div><small>Professionals Empowered</small></div>
+    <div class="stat"><div class="n"><span data-count="20">0</span>+</div><small>Countries Reached</small></div>
+    <div class="stat"><div class="n">PhD</div><small>Digital Marketing</small></div>
+  </div>
+</section>
+
+<!-- BEFORE / AFTER -->
+<section class="ba">
+  <div class="ba-l rv in-left">
+    <h2>Struggling Right Now</h2>
+    <ul>
+      <li>Posting on social media with no strategy or results</li>
+      <li>Spending on ads but getting no quality leads</li>
+      <li>No idea what content to create or when to post</li>
+      <li>Fully dependent on word-of-mouth referrals</li>
+      <li>Getting enquiries but unable to convert them</li>
+      <li>Watching competitors grow while you stay stuck</li>
+    </ul>
+  </div>
+  <div class="ba-r rv in-right">
+    <h2>After the Workshop</h2>
+    <ul>
+      <li>A clear organic lead-generation system that actually works</li>
+      <li>365-day content calendar with daily ideas ready to go</li>
+      <li>Use AI tools to create high-converting content fast</li>
+      <li>Grow on Instagram, LinkedIn &amp; YouTube simultaneously</li>
+      <li>A proven framework to turn followers into paying customers</li>
+      <li>Confidence to grow independently, without agencies</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section class="sec" id="curriculum">
+  <div class="wrap rv">
+    <div class="sec-head"><div><div class="eyebrow">What You'll Learn</div><h2>The Curriculum</h2></div></div>
+    <div>
+      <div class="row"><div class="num">01</div><h3>SEO Essentials</h3><p>Rank higher on Google and get discovered by the right audience organically. Understand what drives search traffic.</p></div>
+      <div class="row"><div class="num">02</div><h3>Keyword Research &amp; Tools</h3><p>Find the right keywords your audience is searching for using free and pro tools Dr. Jishya personally uses.</p></div>
+      <div class="row"><div class="num">03</div><h3>Content Strategy &amp; Planning</h3><p>Build a 365-day content calendar. Create content that converts, engages, and keeps your audience coming back.</p></div>
+      <div class="row"><div class="num">04</div><h3>Social Media Growth</h3><p>Leverage Instagram, Facebook &amp; LinkedIn for maximum organic reach. Understand algorithms and viral content.</p></div>
+      <div class="row"><div class="num">05</div><h3>Freelancing &amp; Personal Brand</h3><p>Discover high-paying freelance opportunities. Build a personal brand that attracts clients.</p></div>
+      <div class="row"><div class="num">06</div><h3>YouTube &amp; Analytics</h3><p>Grow and monetise your YouTube channel. Understand data-driven strategies that compound over time.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="sec" style="padding-top:0">
+  <div class="wrap rv">
+    <div class="sec-head"><div><div class="eyebrow">Audience</div><h2>Who Should Attend</h2></div></div>
+    <div class="who">
+      <div><span aria-hidden="true">🏢</span><p>Business owners looking to promote their brand online</p></div>
+      <div><span aria-hidden="true">🎓</span><p>Fresh graduates looking for ways to make money online</p></div>
+      <div><span aria-hidden="true">💼</span><p>Professionals wanting to build a strong personal brand</p></div>
+      <div><span aria-hidden="true">🏠</span><p>Homemakers looking to support family with a new skill</p></div>
+      <div><span aria-hidden="true">💻</span><p>Aspiring freelancers wanting to earn extra income online</p></div>
+      <div><span aria-hidden="true">📱</span><p>New to digital marketing and want a successful career in it</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-l rv in-left">
+    <figure class="ph portrait img-reveal">
+      <img src="https://picsum.photos/seed/jishya-about/800/1067" alt="Dr. G.B. Jishya" loading="lazy" data-parallax="0.06">
+      <figcaption><b>Dr. G.B. Jishya</b><small>Ph.D · Digital Marketing</small></figcaption>
+    </figure>
+  </div>
+  <div class="about-r rv in-right">
+    <div class="eyebrow">Your Trainer</div>
+    <h2>Meet Dr. Jishya</h2>
+    <p>Jishya holds a PhD in Digital Marketing with a specialisation in consumer psychology in online shopping — giving her a rare, data-backed understanding of what makes audiences click, trust, and buy online.</p>
+    <p>She has managed social media for globally recognised brands including GOD TV Asia, ODB, Toastmasters International, GO Movement, Campus Crusade, and Essar Logistics — generating over 100,000+ interactions in a single campaign year.</p>
+    <p>Having personally empowered over 70,000 students and professionals across India, she is on a mission to help 1 million people grow their career or business through digital marketing.</p>
+    <div class="tags">
+      <span>GOD TV Asia</span><span>ODB</span><span>Toastmasters Intl</span><span>GO Movement</span>
+      <span>Campus Crusade</span><span>Essar Logistics</span><span>Madras Christian College</span><span>Soka Ikeda College</span>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="sec" id="reviews">
+  <div class="wrap rv">
+    <div class="sec-head"><div><div class="eyebrow">Reviews</div><h2>What Attendees Say</h2></div></div>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“I have understood the uniqueness of each digital platform. It helps me to choose the appropriate platform. I will implement this in my YouTube Channel shortly.”</blockquote><div class="who-by"><div class="avatar">A</div><span><b>Alwin</b> · Mumbai</span></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“I learned to digitise all my knowledge for better digital visibility. Algorithms &amp; Keywords. The concept delivery was good and clear.”</blockquote><div class="who-by"><div class="avatar">S</div><span><b>Sam</b> · Malaysia</span></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“I learned the foundations of Digital Marketing. Jishya is approachable and teaches in an easier way.”</blockquote><div class="who-by"><div class="avatar">L</div><span><b>Larissa</b> · France</span></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“Using ChatGPT to frame content outlines, how to schedule a 30-day content plan. I am referring this to my friends.”</blockquote><div class="who-by"><div class="avatar">A</div><span><b>Anto</b> · UAE</span></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“The teaching is so good and crystal clear that even a fresher can understand. Jishya taught from the heart.”</blockquote><div class="who-by"><div class="avatar">A</div><span><b>Ann George</b> · Texas USA</span></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 stars">★★★★★</div><blockquote>“I'm a Nurse. After 2 days with Dr. Jishya I realised digital marketing is for everyone — not just IT professionals.”</blockquote><div class="who-by"><div class="avatar">F</div><span><b>Femi</b> · Maldives</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div class="faq-l rv in-left">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently Asked</h2>
+      <p>Can't find what you're looking for? Write to us at <a href="mailto:info@jishya.com">info@jishya.com</a> and we'll get back to you.</p>
+    </div>
+    <div class="faq-r rv in-right">
+      <div class="q"><button aria-expanded="false">Who is this workshop for?</button><div class="a"><p>Suitable for homemakers, students, office goers and business owners. No prior experience needed.</p></div></div>
+      <div class="q"><button aria-expanded="false">What time and date?</button><div class="a"><p>October 22nd &amp; 23rd, 6:30–9:00 PM IST on Zoom. 5 hours across 2 days.</p></div></div>
+      <div class="q"><button aria-expanded="false">Will I get a recording?</button><div class="a"><p>LIVE session only. No recordings. Attend live for full experience and interactive Q&amp;A.</p></div></div>
+      <div class="q"><button aria-expanded="false">How will I get the link?</button><div class="a"><p>Email or WhatsApp 24 hours before. Check inbox and spam folder.</p></div></div>
+      <div class="q"><button aria-expanded="false">I want more help in my business?</button><div class="a"><p>1-on-1 consulting program starting at ₹2,499/hour.</p></div></div>
+      <div class="q"><button aria-expanded="false">Didn't receive mail after payment?</button><div class="a"><p>Check inbox and spam for info@jishya.com. Write to us if not received.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="enroll">
+  <div class="rv">
+    <h2>This Won't Be Available Forever</h2>
+    <p>Seats are limited. Once full, the next batch could be months away.</p>
+    <a href="#enroll" class="btn btn-white">Reserve My Seat — ₹999</a>
+    <small>October 22–23 · 6:30 PM – 9:00 PM IST · Zoom LIVE · No recordings</small>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="flogo">Dr. Jishya</div>
+    <nav aria-label="Footer">
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:info@jishya.com">Email</a>
+    </nav>
+    <div class="copy">© Soul Spring Digital 2026 · All Rights Reserved</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Ticker: duplicate content for seamless loop
+  var items=["SEO Strategy","AI + Marketing","Content Strategy","Personal Branding","Social Media Growth","Freelancing","YouTube Monetisation","Keyword Research","Lead Generation"];
+  var html=items.map(function(t){return "<span>"+t+"</span>"}).join("");
+  document.getElementById("ticker").innerHTML=html+html+html+html;
+
+  // Scroll reveal
+  // Stagger groups: set per-child index
+  document.querySelectorAll(".who,.tgrid,.faq-r,.stats .wrap").forEach(function(g){
+    g.classList.add("stagger");
+    Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i)});
+  });
+  document.querySelectorAll(".curriculum-rows,#curriculum .wrap>div:last-child").forEach(function(g){
+    g.classList.add("stagger");
+    Array.prototype.forEach.call(g.children,function(c,i){c.style.setProperty("--i",i)});
+  });
+  var rv=document.querySelectorAll(".rv,.img-reveal,.stagger");
+  if("IntersectionObserver" in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}});
+    },{threshold:.1});
+    // Clipped (img-reveal) elements never intersect, so watch their parent and reveal the child
+    rv.forEach(function(el){
+      if(el.classList.contains("img-reveal")){
+        var po=new IntersectionObserver(function(es){
+          es.forEach(function(e){if(e.isIntersecting){el.classList.add("on");po.disconnect()}});
+        },{threshold:.15});
+        po.observe(el.parentElement);
+      } else io.observe(el);
+    });
+  } else rv.forEach(function(el){el.classList.add("on")});
+
+  // Counters
+  var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function run(el){
+    var target=+el.dataset.count,dur=1600,start=null;
+    if(reduce){el.textContent=target.toLocaleString("en-IN");return}
+    function step(ts){
+      if(!start)start=ts;
+      var p=Math.min((ts-start)/dur,1),eased=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*eased).toLocaleString("en-IN");
+      if(p<1)requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var cs=document.querySelectorAll("[data-count]");
+  if("IntersectionObserver" in window){
+    var co=new IntersectionObserver(function(es){
+      es.forEach(function(e){if(e.isIntersecting){run(e.target);co.unobserve(e.target)}});
+    },{threshold:.4});
+    cs.forEach(function(el){co.observe(el)});
+  } else cs.forEach(function(el){el.textContent=(+el.dataset.count).toLocaleString("en-IN")});
+
+  // FAQ accordion
+  document.querySelectorAll(".q button").forEach(function(b){
+    b.addEventListener("click",function(){
+      var q=b.parentElement,a=q.querySelector(".a"),open=q.classList.toggle("open");
+      b.setAttribute("aria-expanded",open);
+      a.style.maxHeight=open?a.scrollHeight+"px":0;
+    });
+  });
+
+  // Scroll progress bar + image parallax (rAF-throttled)
+  var bar=document.getElementById("progress"),
+      pimgs=reduce?[]:[].slice.call(document.querySelectorAll("[data-parallax]")),ticking=false;
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-window.innerHeight;
+    bar.style.transform="scaleX("+(h>0?window.scrollY/h:0)+")";
+    var vh=window.innerHeight;
+    pimgs.forEach(function(img){
+      var r=img.parentElement.getBoundingClientRect();
+      if(r.bottom<0||r.top>vh)return;
+      var off=(r.top+r.height/2-vh/2)*parseFloat(img.dataset.parallax);
+      img.style.transform="translate3d(0,"+off.toFixed(1)+"px,0)";
+    });
+    ticking=false;
+  }
+  window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(onScroll)}},{passive:true});
+  window.addEventListener("resize",onScroll);
+  onScroll();
+
+  // Active nav highlight
+  var links=document.querySelectorAll(".nav a"),map={};
+  links.forEach(function(l){var s=document.querySelector(l.getAttribute("href"));if(s)map[l.getAttribute("href")]=s});
+  window.addEventListener("scroll",function(){
+    var cur=null,y=window.scrollY+120;
+    Object.keys(map).forEach(function(k){if(map[k].offsetTop<=y)cur=k});
+    links.forEach(function(l){l.classList.toggle("active",l.getAttribute("href")===cur)});
+  },{passive:true});
+})();
+</script>
+</body>
+</html>
