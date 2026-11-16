@@ -13,6 +13,8 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   charset: 'utf8mb4',
+  // TLS for hosted MySQL (TiDB Cloud / Aiven); skipped for a local database.
+  ...(/^(localhost|127\.0\.0\.1)$/.test(process.env.DB_HOST || '') ? {} : { ssl: { minVersion: 'TLSv1.2', rejectUnauthorized: true } }),
 });
 
 /**
