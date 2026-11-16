@@ -112,7 +112,7 @@ export default function Login() {
     <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4 py-12">
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
-          <img src="/favicon.png" alt="Dr. Jishya" className="mx-auto h-20 w-auto" />
+          <img src={`${import.meta.env.BASE_URL}jishya.png`} alt="Dr. Jishya" className="mx-auto h-20 w-auto" />
           <p className="mt-1 text-xs font-medium uppercase tracking-[.2em] text-ink-soft">Admin Dashboard</p>
         </div>
 

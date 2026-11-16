@@ -55,7 +55,7 @@ export default function Sidebar({ open, onClose }) {
       >
         <div className="flex h-16 flex-none items-center justify-between border-b border-white/10 px-5">
           <div className="flex items-center gap-3">
-            <img src="/favicon.png" alt="Dr. Jishya" className="h-10 w-auto rounded bg-white p-1" />
+            <img src={`${import.meta.env.BASE_URL}jishya.png`} alt="Dr. Jishya" className="h-10 w-auto rounded bg-white p-1" />
             <p className="text-[11px] uppercase tracking-[.16em] text-white/50">Admin</p>
           </div>
           <button
