@@ -36,6 +36,10 @@ async function testConnection() {
   const conn = await pool.getConnection();
   try {
     await conn.ping();
+    // Idempotent migration: older databases lack the 'brand' gallery category.
+    await conn.query(
+      "ALTER TABLE gallery MODIFY category ENUM('portrait','workshop','logo','brand')"
+    );
   } finally {
     conn.release();
   }

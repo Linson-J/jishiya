@@ -9,7 +9,7 @@ export default function Hero({ workshop, stats = [], gallery = [] }) {
   const enrollHref = workshop.cta_link || '#enroll';
 
   // Grayscale "Worked with" strip: admin-managed logos if present, otherwise brand names.
-  const logos = gallery.filter((g) => g.category === 'logo' && g.image_url && g.caption && g.caption.trim());
+  const logos = gallery.filter((g) => g.category === 'logo' && g.image_url);
 
   return (
     <section id="about" aria-label="Meet your trainer" className="border-b border-ink">
@@ -83,7 +83,7 @@ export default function Hero({ workshop, stats = [], gallery = [] }) {
                     <li key={l.id}>
                       <Image
                         src={assetUrl(l.image_url)}
-                        alt={l.caption}
+                        alt={l.caption || 'Partner logo'}
                         width={110}
                         height={32}
                         className="h-7 w-auto object-contain"

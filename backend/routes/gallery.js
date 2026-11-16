@@ -20,12 +20,6 @@ const listRules = [
 const uploadRules = [
   body('category').isIn(CATEGORIES).withMessage(`category must be one of: ${CATEGORIES.join(', ')}`),
   body('caption').optional().isString().trim().isLength({ max: 255 }),
-  body('caption')
-    .if(body('category').equals('logo'))
-    .isString()
-    .trim()
-    .notEmpty()
-    .withMessage('Organisation name (caption) is required for logos'),
   body('sort_order').optional().isInt({ min: 0, max: 100000 }).toInt(),
 ];
 

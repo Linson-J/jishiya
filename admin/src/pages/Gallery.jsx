@@ -25,10 +25,9 @@ const TABS = [
   },
   {
     key: 'logo',
-    label: 'Logos',
+    label: 'Trusted By',
     category: 'logo',
-    hint: 'Shown on the website under “Trusted By — Reputed Institutions She Has Worked With”. Add the logo image AND the organisation name; the whole section stays hidden until at least one logo is added.',
-    captionRequired: true,
+    hint: 'Shown on the website under “Trusted By — Reputed Institutions She Has Worked With”. Add a photo of the institution and its name (optional). The section stays hidden until at least one photo is added.',
     captionLabel: 'Organisation name',
     captionPlaceholder: 'e.g. Madras Christian College',
     aspect: 'aspect-[5/2]',

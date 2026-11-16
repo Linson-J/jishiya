@@ -2,7 +2,6 @@ import dynamic from 'next/dynamic';
 import Masthead from '../components/Masthead';
 import Hero from '../components/Hero';
 import WorkshopBand from '../components/WorkshopBand';
-import StickyCTA from '../components/StickyCTA';
 import BackToTop from '../components/BackToTop';
 import { getAllData } from '../lib/api';
 
@@ -27,7 +26,7 @@ export default async function Home() {
   const { workshop, stats, testimonials, faq, curriculum, gallery, workshops } = await getAllData();
 
   return (
-    <div id="top" className="pb-16 md:pb-0">
+    <div id="top" className="">
       <Masthead workshop={workshop} />
       <main>
         <Hero workshop={workshop} stats={stats} gallery={gallery} />
@@ -45,7 +44,6 @@ export default async function Home() {
         <CTABand workshop={workshop} />
       </main>
       <Footer />
-      <StickyCTA workshop={workshop} />
       <BackToTop />
     </div>
   );

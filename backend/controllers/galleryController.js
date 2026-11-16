@@ -185,10 +185,6 @@ exports.updateImage = async (req, res, next) => {
 
     if (req.body.caption !== undefined) {
       const caption = String(req.body.caption).trim();
-      if (row.category === 'logo' && !caption) {
-        if (tmpPath) await removeQuietly(tmpPath);
-        return res.status(400).json({ error: 'Organisation name (caption) is required for logos' });
-      }
       sets.push('caption = ?');
       values.push(caption || null);
     }

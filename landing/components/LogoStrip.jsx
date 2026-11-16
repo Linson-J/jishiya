@@ -7,8 +7,8 @@ import { assetUrl } from '../lib/api';
  */
 export default function LogoStrip({ logos }) {
   const items = (logos || [])
-    .filter((l) => l.image_url && l.caption && l.caption.trim())
-    .map((l) => ({ key: l.id, name: l.caption.trim(), src: assetUrl(l.image_url) }));
+    .filter((l) => l.image_url)
+    .map((l) => ({ key: l.id, name: (l.caption || '').trim(), src: assetUrl(l.image_url) }));
 
   if (items.length === 0) return null;
 
@@ -39,15 +39,17 @@ export default function LogoStrip({ logos }) {
             >
               <Image
                 src={item.src}
-                alt={`${item.name} logo`}
+                alt={item.name ? `${item.name} logo` : 'Partner logo'}
                 width={160}
                 height={56}
                 sizes="160px"
                 className="max-h-14 w-auto object-contain"
               />
-              <span className="line-clamp-2 text-[10px] font-semibold uppercase leading-tight tracking-[.1em] text-ink-soft">
-                {item.name}
-              </span>
+              {item.name && (
+                <span className="line-clamp-2 text-[10px] font-semibold uppercase leading-tight tracking-[.1em] text-ink-soft">
+                  {item.name}
+                </span>
+              )}
             </div>
           ))}
         </div>
