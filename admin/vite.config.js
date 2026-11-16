@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 // (the landing server proxies /admin-panel -> this dev server, and /api -> backend).
 // Opening http://localhost:5173/admin-panel/ directly still works.
 export default defineConfig({
-  base: '/admin-panel/',
+  // Standalone Vercel deploy of admin/ sets VITE_BASE=/ ; locally it stays /admin-panel/.
+  base: process.env.VITE_BASE || '/admin-panel/',
   plugins: [react()],
   server: {
     port: 5173,
@@ -14,5 +15,9 @@ export default defineConfig({
     hmr: { host: 'localhost', port: 5173, clientPort: 5173 },
   },
   preview: { port: 5173, strictPort: true },
-  build: { outDir: '../landing/public/admin-panel', emptyOutDir: true },
+  // On Vercel the output must stay inside the project (dist); locally it goes into the landing app.
+  build: {
+    outDir: process.env.VERCEL ? 'dist' : '../landing/public/admin-panel',
+    emptyOutDir: true,
+  },
 });

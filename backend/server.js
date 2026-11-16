@@ -3,6 +3,9 @@
 // 1. Load and validate environment variables BEFORE anything else is required.
 require('dotenv').config({ quiet: true });
 
+// Vercel doesn't need a port; default it so validation below still passes.
+if (!process.env.PORT) process.env.PORT = '5000';
+
 const REQUIRED_ENV = [
   'PORT',
   'DB_HOST',
@@ -76,13 +79,19 @@ const eventRoutes = require('./routes/events');
 const app = express();
 app.disable('x-powered-by');
 // Requests arrive via the landing server's proxy (/api rewrite) on the same machine.
-app.set('trust proxy', 'loopback');
+// On Vercel there is one proxy hop in front of the function.
+app.set('trust proxy', process.env.VERCEL ? 1 : 'loopback');
 
 // Make sure upload folders exist (also creates the private temp dir).
-['portrait', 'gallery', 'logos'].forEach((dir) =>
-  fs.mkdirSync(path.join(__dirname, 'uploads', dir), { recursive: true })
-);
-fs.mkdirSync(path.join(__dirname, 'tmp'), { recursive: true });
+// On Vercel the filesystem is read-only, so this must not crash the function.
+try {
+  ['portrait', 'gallery', 'logos'].forEach((dir) =>
+    fs.mkdirSync(path.join(__dirname, 'uploads', dir), { recursive: true })
+  );
+  fs.mkdirSync(path.join(__dirname, 'tmp'), { recursive: true });
+} catch (e) {
+  console.warn('Could not create upload folders (read-only filesystem?):', e.message);
+}
 
 // 2. Security headers. Images in /uploads are loaded cross-origin by the
 //    frontend, so the resource policy must be "cross-origin".
@@ -178,4 +187,9 @@ async function start() {
   });
 }
 
-start();
+// Locally: start a normal server. On Vercel: the platform imports the exported app.
+if (require.main === module) {
+  start();
+}
+
+module.exports = app;
