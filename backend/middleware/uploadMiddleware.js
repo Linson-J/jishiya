@@ -1,27 +1,18 @@
 'use strict';
 
 const path = require('path');
-const fs = require('fs');
-const crypto = require('crypto');
 const multer = require('multer');
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5 MB
+// Vercel functions reject request bodies over 4.5 MB, so stay under that.
+const MAX_FILE_SIZE = 4 * 1024 * 1024; // 4 MB
 const ALLOWED_MIME = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const ALLOWED_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
-// Files land in a private (non-served) temp folder first. The gallery controller
-// validates the body, checks the real file signature, then moves the file into
-// uploads/<portrait|gallery|logos>.
-const TMP_DIR = path.join(__dirname, '..', 'tmp');
-fs.mkdirSync(TMP_DIR, { recursive: true });
-
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, TMP_DIR),
-  filename: (req, file, cb) => {
-    // Never trust the client-supplied filename.
-    cb(null, `${Date.now()}-${crypto.randomBytes(12).toString('hex')}.upload`);
-  },
-});
+// Files are kept in memory (never written to a temp folder), because the
+// filesystem on Vercel is read-only. The gallery controller validates the body,
+// checks the real file signature, then stores the image in Vercel Blob
+// (production) or in uploads/<portrait|gallery|logos> (local development).
+const storage = multer.memoryStorage();
 
 function fileFilter(req, file, cb) {
   const ext = path.extname(file.originalname || '').toLowerCase();
@@ -44,4 +35,4 @@ const upload = multer({
   },
 });
 
-module.exports = { upload, TMP_DIR, MAX_FILE_SIZE };
+module.exports = { upload, MAX_FILE_SIZE };

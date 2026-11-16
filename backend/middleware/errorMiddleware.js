@@ -26,7 +26,7 @@ function errorHandler(err, req, res, next) {
   // Multer errors (file too large, too many files, unexpected field, ...)
   if (err instanceof multer.MulterError) {
     if (err.code === 'LIMIT_FILE_SIZE') {
-      return res.status(413).json({ error: 'File too large. Maximum size is 5MB' });
+      return res.status(413).json({ error: 'File too large. Maximum size is 4MB' });
     }
     return res.status(400).json({ error: `Upload error: ${err.message}` });
   }
