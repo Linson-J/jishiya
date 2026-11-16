@@ -22,6 +22,8 @@ const remotePatterns = [
   backendPattern(),
   // Any Railway-generated domain (https://<service>.up.railway.app)
   { protocol: 'https', hostname: '**.up.railway.app', pathname: '/uploads/**' },
+  // Images uploaded from the admin panel are stored in Vercel Blob.
+  { protocol: 'https', hostname: '*.public.blob.vercel-storage.com' },
 ].filter(Boolean);
 
 const BACKEND = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000').replace(/\/+$/, '');
