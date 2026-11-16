@@ -5,7 +5,7 @@ import { Spinner } from './PageLoader';
 import { getErrorMessage } from '../api/axiosInstance';
 
 const ACCEPTED_TYPES = ['image/jpeg', 'image/png', 'image/webp'];
-const MAX_SIZE = 5 * 1024 * 1024; // 5 MB — matches the backend limit
+const MAX_SIZE = 4 * 1024 * 1024; // 4 MB — matches the backend limit
 
 function formatSize(bytes) {
   return bytes < 1024 * 1024 ? `${Math.round(bytes / 1024)} KB` : `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
@@ -48,7 +48,7 @@ export default function ImageUploader({
       return;
     }
     if (selected.size > MAX_SIZE) {
-      setError(`File is ${formatSize(selected.size)}. The maximum size is 5 MB.`);
+      setError(`File is ${formatSize(selected.size)}. The maximum size is 4 MB.`);
       return;
     }
     setFile(selected);
@@ -132,7 +132,7 @@ export default function ImageUploader({
           <p className="text-sm font-medium">
             Drag &amp; drop an image here, or <span className="text-accent underline">browse</span>
           </p>
-          <p className="mt-1 text-xs text-ink-soft">JPG, PNG or WebP · max 5 MB</p>
+          <p className="mt-1 text-xs text-ink-soft">JPG, PNG or WebP · max 4 MB</p>
         </div>
       ) : (
         <div className="flex flex-col gap-5 sm:flex-row">
