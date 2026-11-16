@@ -1,15 +1,15 @@
 import Image from 'next/image';
 import { assetUrl } from '../lib/api';
 
-const FALLBACK_BRANDS = ['GOD TV Asia', 'Toastmasters Intl', 'Essar Logistics', 'ODB'];
-
 /** First screen: the trainer's introduction. */
 export default function Hero({ workshop, stats = [], gallery = [] }) {
   const portrait = gallery.find((g) => g.category === 'portrait');
   const enrollHref = workshop.cta_link || '#enroll';
 
-  // Grayscale "Worked with" strip: admin-managed logos if present, otherwise brand names.
-  const logos = gallery.filter((g) => g.category === 'logo' && g.image_url);
+  // "Worked with": text only — the organisation names entered in the admin panel (Trusted By). Hidden when none.
+  const workedWith = gallery
+    .filter((g) => g.category === 'logo' && g.caption && g.caption.trim())
+    .map((g) => ({ id: g.id, name: g.caption.trim() }));
 
   return (
     <section id="about" aria-label="Meet your trainer" className="border-b border-ink">
@@ -75,28 +75,18 @@ export default function Hero({ workshop, stats = [], gallery = [] }) {
             </dl>
           )}
 
-          <div className="max-w-[620px]">
-            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[.16em] text-ink-soft">Worked with</p>
-            <ul className="flex flex-wrap items-center gap-x-6 gap-y-2 opacity-70 grayscale">
-              {logos.length > 0
-                ? logos.slice(0, 5).map((l) => (
-                    <li key={l.id}>
-                      <Image
-                        src={assetUrl(l.image_url)}
-                        alt={l.caption || 'Partner logo'}
-                        width={110}
-                        height={32}
-                        className="h-7 w-auto object-contain"
-                      />
-                    </li>
-                  ))
-                : FALLBACK_BRANDS.map((b) => (
-                    <li key={b} className="font-serif text-sm font-bold uppercase tracking-wide text-ink-mid">
-                      {b}
-                    </li>
-                  ))}
-            </ul>
-          </div>
+          {workedWith.length > 0 && (
+            <div className="max-w-[620px]">
+              <p className="mb-2 text-[10px] font-semibold uppercase tracking-[.16em] text-ink-soft">Worked with</p>
+              <ul className="flex flex-wrap items-center gap-x-6 gap-y-2">
+                {workedWith.slice(0, 5).map((w) => (
+                  <li key={w.id} className="font-serif text-sm font-bold uppercase tracking-wide text-ink-mid">
+                    {w.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
             <a

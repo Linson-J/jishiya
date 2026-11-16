@@ -35,7 +35,7 @@ export default function LogoStrip({ logos }) {
             <div
               key={`${item.key}-${i}`}
               aria-hidden={i >= items.length ? 'true' : undefined}
-              className="flex h-28 w-44 flex-none flex-col items-center justify-center gap-2 border border-rule bg-paper-dark p-3 text-center"
+              className="group/card relative flex h-28 w-44 flex-none items-center justify-center overflow-hidden border border-rule bg-paper-dark p-3 text-center"
             >
               <Image
                 src={item.src}
@@ -46,7 +46,7 @@ export default function LogoStrip({ logos }) {
                 className="max-h-14 w-auto object-contain"
               />
               {item.name && (
-                <span className="line-clamp-2 text-[10px] font-semibold uppercase leading-tight tracking-[.1em] text-ink-soft">
+                <span className="absolute inset-x-0 bottom-0 translate-y-full bg-ink/85 px-2 py-1.5 text-[10px] font-semibold uppercase leading-tight tracking-[.1em] text-white transition-transform duration-200 group-hover/card:translate-y-0">
                   {item.name}
                 </span>
               )}
