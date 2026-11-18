@@ -1,7 +1,5 @@
-*.log
-devdb-backup/
-devdb-corrupt/
-backend/.devdb/
 node_modules/
 .env
 .env.local
+.vercel
+*.log

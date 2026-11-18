@@ -1,5 +1,15 @@
 {
-  "name": "jishya",
+  "name": "jishya-landing",
+  "version": "2.0.0",
   "private": true,
-  "scripts": { "dev": "node start-all.js" }
+  "description": "Dr. Jishya landing page with Get in Touch mail form",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
 }
